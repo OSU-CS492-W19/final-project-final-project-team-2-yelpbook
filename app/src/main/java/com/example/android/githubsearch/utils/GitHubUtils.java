@@ -12,9 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GitHubUtils {
-    private final static String GITHUB_SEARCH_BASE_URL = "https://api.github.com/search/repositories";
-    private final static String GITHUB_SEARCH_QUERY_PARAM = "q";
-    private final static String GITHUB_SEARCH_SORT_PARAM = "sort";
+    private final static String GITHUB_SEARCH_BASE_URL = "https://api.yelp.com/v3/businesses/search";
+    private final static String GITHUB_SEARCH_QUERY_PARAM = "term";
+
+    private final static String GITHUB_SEARCH_LOCATION_PARAM = "location";
+
     private final static String GITHUB_SEARCH_SORT_VALUE = "stars";
     private final static String GITHUB_SEARCH_LANGUAGE_FORMAT_STR = "language:%s";
     private final static String GITHUB_SEARCH_USER_FORMAT_STR = "user:%s";
@@ -31,8 +33,8 @@ public class GitHubUtils {
 
     public static String buildGitHubSearchURL(String query) {
         return Uri.parse(GITHUB_SEARCH_BASE_URL).buildUpon()
-                .appendQueryParameter(GITHUB_SEARCH_QUERY_PARAM, query)
-                .appendQueryParameter(GITHUB_SEARCH_SORT_PARAM, GITHUB_SEARCH_SORT_VALUE)
+                .appendQueryParameter(GITHUB_SEARCH_QUERY_PARAM, "starbucks")
+                .appendQueryParameter("location", "corvallis")
                 .build()
                 .toString();
     }

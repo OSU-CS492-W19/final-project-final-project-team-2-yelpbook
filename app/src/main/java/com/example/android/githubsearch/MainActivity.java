@@ -117,8 +117,9 @@ public class MainActivity extends AppCompatActivity
         boolean searchInDescription = preferences.getBoolean(getString(R.string.pref_in_description_key), true);
         boolean searchInReadme = preferences.getBoolean(getString(R.string.pref_in_readme_key), false);
 
-        String url = GitHubUtils.buildGitHubSearchURL(query, sort, language, user, searchInName,
-                searchInDescription, searchInReadme);
+//        String url = GitHubUtils.buildGitHubSearchURL(query, sort, language, user, searchInName,
+//                searchInDescription, searchInReadme);
+        String url =GitHubUtils.buildGitHubSearchURL(query);
         Log.d(TAG, "querying search URL: " + url);
 
         Bundle args = new Bundle();

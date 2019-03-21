@@ -2,6 +2,7 @@ package com.example.android.yelpsearch;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +20,7 @@ import com.example.android.yelpsearch.data.YelpRest;
 
 import org.w3c.dom.Text;
 
+import java.util.Collections;
 import java.util.List;
 
 public class YelpSearchAdapter extends RecyclerView.Adapter<YelpSearchAdapter.SearchResultViewHolder> {
@@ -57,6 +59,15 @@ public class YelpSearchAdapter extends RecyclerView.Adapter<YelpSearchAdapter.Se
 
     @Override
     public void onBindViewHolder(@NonNull SearchResultViewHolder holder, int position) {
+        for( int  i = 0; i < mRepos.size() -1; i ++){
+            for(int j = 0; j < mRepos.size() -1; j++){
+                if(mRepos.get(j).price != null && mRepos.get(j+1).price !=null){
+                if(mRepos.get(j).price.length() > mRepos.get(j+1).price.length()) {
+                    Collections.swap(mRepos, j, j + 1);
+
+                }                }
+            }
+        }
         holder.bind(mRepos.get(position));
     }
 
@@ -64,6 +75,7 @@ public class YelpSearchAdapter extends RecyclerView.Adapter<YelpSearchAdapter.Se
         private TextView mSearchResultRestTV;
         private TextView mSearchResultAddrtTV;
         private ImageView mRestImgIV;
+        private TextView mPrice;
 
 
         public SearchResultViewHolder(View itemView) {
@@ -71,6 +83,8 @@ public class YelpSearchAdapter extends RecyclerView.Adapter<YelpSearchAdapter.Se
             mSearchResultRestTV = itemView.findViewById(R.id.tv_search_result_rest);
             mSearchResultAddrtTV = itemView.findViewById(R.id.tv_search_result_address);
             mRestImgIV = itemView.findViewById(R.id.iv_rest_img);
+            mPrice = itemView.findViewById(R.id.tv_price);
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -84,6 +98,7 @@ public class YelpSearchAdapter extends RecyclerView.Adapter<YelpSearchAdapter.Se
         public void bind(YelpRest repo) {
             mSearchResultRestTV.setText(repo.name );
             mSearchResultAddrtTV.setText(repo.location_address + ", " + repo.location_city);
+            mPrice.setText("Price: " + repo.price);
 
             Glide.with(mRestImgIV.getContext())
                     .load(repo.img_url)

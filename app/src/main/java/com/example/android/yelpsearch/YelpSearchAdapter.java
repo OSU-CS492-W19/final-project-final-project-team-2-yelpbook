@@ -64,8 +64,10 @@ public class YelpSearchAdapter extends RecyclerView.Adapter<YelpSearchAdapter.Se
                 if(mRepos.get(j).price != null && mRepos.get(j+1).price !=null){
                 if(mRepos.get(j).price.length() > mRepos.get(j+1).price.length()) {
                     Collections.swap(mRepos, j, j + 1);
-
-                }                }
+                    }
+                }else if(mRepos.get(j).price == null){
+                    Collections.swap(mRepos,j,j+1);
+                }
             }
         }
         holder.bind(mRepos.get(position));

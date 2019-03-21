@@ -20,4 +20,5 @@ public class YelpRest implements Serializable {
     public String location_city;
     public String location_address;
 
+    public String price;
 }

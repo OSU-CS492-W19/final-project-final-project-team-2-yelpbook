@@ -41,6 +41,7 @@ public class YelpUtils {
         public String rating;
         public  GSONLocation location;
         public  String phone;
+        public String price;
 
     }
 
@@ -139,6 +140,7 @@ public class YelpUtils {
                 yelpRestaurant.location_city = restItem.location.city;
                 yelpRestaurant.location_address = restItem.location.address1;
                 yelpRestaurant.img_url = restItem.image_url;
+                yelpRestaurant.price = restItem.price;
                 yelpRestItems.add(yelpRestaurant);
             }
             return yelpRestItems;

@@ -11,10 +11,9 @@
         android:id="@+id/action_view_on_web"
         android:title="@string/action_view_on_web"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_write_review"
-        android:title="@string/action_write_review"
-        app:showAsAction="never" />
-
-
+    <!--<item-->
+        <!--android:id="@+id/action_write_review"-->
+        <!--android:title="@string/action_write_review"-->
+        <!--app:showAsAction="never" />-->
+    
 </menu>

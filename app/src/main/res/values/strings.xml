@@ -11,7 +11,7 @@
     <string name="share_repo_text">%1$s: %2$s</string>
 
     <string name="nav_search">Search</string>
-    <string name="nav_saved_repos">Saved repos</string>
+    <string name="nav_saved_repos">Saved Restaurants</string>
     <string name="nav_settings">Settings</string>
 
     <!-- Strings for sort-by preference -->
